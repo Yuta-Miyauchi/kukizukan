@@ -1007,6 +1007,24 @@
     bottom: -1%;
     width: 43cqw;
     height: 43cqw;
+    gap: 0.12cqw;
+  }
+
+  .poster-date-year {
+    font-size: 4.2cqw;
+  }
+
+  .poster-date-day {
+    font-size: 7cqw;
+  }
+
+  .poster-date-time {
+    font-size: 2.6cqw;
+  }
+
+  .poster-date-free {
+    margin-top: 0.4cqw;
+    font-size: 3.8cqw;
   }
 
   .upcoming-event {

@@ -171,40 +171,43 @@
 
 @media (max-width: 700px) {
   .concept-map {
-    min-height: 500px;
-    margin-top: 28px;
+    min-height: 400px;
+    margin: 28px -10px 0;
   }
 
   .concept-map::before {
-    inset: 14px -2px 8px;
+    inset: 14px 0 8px;
   }
 
   .concept-map::after {
     top: 178px;
     right: 0;
     left: 0;
+    box-shadow:
+      0 100px 0 var(--concept-pink),
+      0 146px 0 rgba(78, 62, 196, 0.72);
   }
 
   .concept-map-flow {
-    width: 90%;
-    margin-top: 152px;
+    width: 96%;
+    margin-top: 148px;
   }
 
   .concept-map-card-message {
     top: 58px;
     left: 0;
-    width: 25%;
+    width: 27%;
   }
 
   .concept-map-card-birth {
     top: 58px;
     right: 0;
-    width: 27%;
+    width: 29%;
   }
 
   .concept-map-card-change {
-    right: 2%;
-    bottom: 20px;
-    width: 76%;
+    right: 1%;
+    bottom: 54px;
+    width: 82%;
   }
 }
