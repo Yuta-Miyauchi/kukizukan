@@ -11,6 +11,7 @@
         <script>
             window.location.replace('./index.html#about');
         </script>
+        <script src = "./js/mobile-menu.js" defer></script>
         <link href = "./css/common.css" rel = "stylesheet">
         <link href = "./css/book.css" rel = "stylesheet">
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
@@ -24,7 +25,7 @@
                 <a class = "header-logo" href = "./index.html">
                     <img src = "./images/common/logo.png" alt = "logo-artmosphere">
                 </a>
-                <div class = "header-menu">
+                <div class = "header-menu" id = "site-menu">
                     <nav class = "menu">
                         <ul>
                             <li><a href = "./index.html#exhibition">展示会</a></li>
@@ -36,7 +37,21 @@
                     </nav>
                 </div>
             </div>
+            <button class = "mobile-menu-toggle" type = "button" aria-controls = "site-menu" aria-expanded = "false" aria-label = "メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
+        <div class = "site-logo-bar" aria-label = "関連団体ロゴ">
+            <div class = "site-logo-bar-inner">
+                <img class = "site-logo site-logo-osaka" src = "./images/common/J_C1_bl_RGB.jpg" alt = "大阪大学">
+                <div class = "site-logo-partners">
+                    <img class = "site-logo site-logo-cbi" src = "./images/common/02_CBI_EN_RGB.png" alt = "大阪大学超域イノベーション博士課程プログラム">
+                    <img class = "site-logo site-logo-onac" src = "./images/common/onac_logo_横並び.png" alt = "大阪大学中之島芸術センター">
+                </div>
+            </div>
+        </div>
         <main class = "main">
             <div class = "book-page">
                 <p class = "page-label">我々について</p>
@@ -45,6 +60,13 @@
             </div>
         </main>
         <footer class = "footer">
+            <div class = "footer-logo-set" aria-label = "関連団体ロゴ">
+                <img class = "footer-logo footer-logo-osaka" src = "./images/common/J_C1_bl_RGB.jpg" alt = "大阪大学">
+                <div class = "footer-logo-partners">
+                    <img class = "footer-logo footer-logo-cbi" src = "./images/common/02_CBI_EN_RGB.png" alt = "大阪大学超域イノベーション博士課程プログラム">
+                    <img class = "footer-logo footer-logo-onac" src = "./images/common/onac_logo_横並び.png" alt = "大阪大学中之島芸術センター">
+                </div>
+            </div>
             <p class = "footer-about-us">主催：大阪大学超域イノベーション博士課程プログラム2026年度グループ型企画支援『「空気」を観る体験の創造』<br>共催：大阪大学中之島芸術センター</p>
             <p class = "copyright"><small>Copyright &copy; 2026 あなたとつくる空気図鑑 All rights reserved.</small></p>
         </footer>

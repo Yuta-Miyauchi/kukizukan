@@ -34,8 +34,8 @@
    ========================================================== */
 
 .first-view {
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: calc(100vh - var(--top-logo-bar-height));
+  min-height: calc(100svh - var(--top-logo-bar-height));
   padding: 28px 24px 0;
   position: relative;
   overflow: hidden;
@@ -46,8 +46,8 @@
 
 .poster-page {
   grid-area: cover;
-  height: calc(100vh - 28px);
-  height: calc(100svh - 28px);
+  height: calc(100vh - var(--top-logo-bar-height) - 28px);
+  height: calc(100svh - var(--top-logo-bar-height) - 28px);
   min-height: 640px;
   margin: 0;
   padding: 0;
@@ -681,7 +681,7 @@
 #prologue,
 #concept,
 #about {
-  scroll-margin-top: 28px;
+  scroll-margin-top: calc(var(--top-logo-bar-height) + 28px);
 }
 
 .about-spread .spread-page {
@@ -846,8 +846,8 @@
 
 @media (max-width: 900px) {
   .poster-page {
-    height: calc(100vh - 28px);
-    height: calc(100svh - 28px);
+    height: calc(100vh - var(--top-logo-bar-height) - 28px);
+    height: calc(100svh - var(--top-logo-bar-height) - 28px);
     min-height: 600px;
     padding: 0;
   }
@@ -907,8 +907,8 @@
 
   /* 細い画面では背表紙が紙面を圧迫するので、背表紙自体を細くする */
   .poster-page {
-    height: calc(100vh - 22px);
-    height: calc(100svh - 22px);
+    height: calc(100vh - var(--top-logo-bar-height) - 22px);
+    height: calc(100svh - var(--top-logo-bar-height) - 22px);
     min-height: 540px;
     padding: 0;
     background-image:
@@ -997,8 +997,8 @@
   }
 
   .poster-page {
-    height: calc(100vh - 24px);
-    height: calc(100svh - 24px);
+    height: calc(100vh - var(--top-logo-bar-height) - 24px);
+    height: calc(100svh - var(--top-logo-bar-height) - 24px);
     min-height: 560px;
   }
 

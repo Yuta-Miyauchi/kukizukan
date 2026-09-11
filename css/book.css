@@ -16,6 +16,7 @@
   --shade: #d4d4d0;
   --shade-strong: #b9b9b6;
   --sidebar-width: 220px;
+  --top-logo-bar-height: 78px;
   /* 栞の切り欠き（V字）の深さと、栞の先端を床から浮かせる高さ */
   --ribbon-notch: 26px;
   --ribbon-gap: 20px;
@@ -33,6 +34,7 @@
   top: 0;
   right: auto;
   bottom: var(--ribbon-gap);
+  z-index: 14;
   width: var(--sidebar-width);
   clip-path: polygon(
     0 0,
@@ -115,6 +117,79 @@
   border-left: 4px solid var(--paper);
 }
 
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ==========================================================
+   1.5. site-logo-bar — ページ上部の関連ロゴ帯
+   ========================================================== */
+
+.site-logo-bar {
+  height: var(--top-logo-bar-height);
+  padding: 8px 28px 8px 22px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar-width);
+  z-index: 8;
+  background-color: #fdfcef;
+  background-image:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.92), rgba(246, 242, 221, 0.78)),
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 22px 22px, 22px 22px;
+  box-shadow:
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.site-logo-bar-inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+
+.site-logo {
+  display: block;
+  background-color: transparent;
+  object-position: center;
+}
+
+.site-logo-osaka {
+  width: 220px;
+  height: 54px;
+  padding: 6px 12px;
+  object-fit: cover;
+}
+
+.site-logo-partners {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-logo-cbi {
+  width: clamp(420px, 37vw, 540px);
+  height: 56px;
+  padding: 4px 8px;
+  object-fit: cover;
+  object-position: right center;
+}
+
+.site-logo-onac {
+  width: clamp(250px, 21vw, 310px);
+  height: 48px;
+  padding: 4px 8px;
+  object-fit: cover;
+  object-position: left center;
+}
+
 /* ==========================================================
    2. main — 本を置いた机の面
    ========================================================== */
@@ -122,7 +197,7 @@
 .main {
   --book-width: min(760px, calc(100% - 88px));
   margin-left: var(--sidebar-width);
-  padding-top: 0;
+  padding-top: var(--top-logo-bar-height);
   padding-bottom: 56px;
   background-color: #eeeeec;
   background-image:
@@ -143,7 +218,7 @@
   position: fixed;
   left: 0;
   bottom: var(--ribbon-gap);
-  z-index: 11;
+  z-index: 15;
   width: var(--sidebar-width);
   margin-left: 0;
   padding: 0 26px calc(var(--ribbon-notch) + 12px);
@@ -163,6 +238,10 @@
   margin-top: 12px;
   font-size: 9px;
   line-height: 1.5;
+}
+
+.footer-logo-set {
+  display: none;
 }
 
 /* ==========================================================
@@ -697,71 +776,228 @@
 }
 
 @media (max-width: 700px) {
-  /* 栞が細くなるので切り欠きも浅くする。
-     --sidebar-width を上書きすれば header / footer / main の
-     3 か所すべてに効く（それぞれ変数を参照しているため） */
   :root {
-    --sidebar-width: 82px;
-    --ribbon-notch: 15px;
-    --ribbon-gap: 13px;
+    --sidebar-width: 0px;
+    --top-logo-bar-height: 0px;
   }
 
+  .site-logo-bar {
+    display: none;
+  }
+
+  .header {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 30;
+    width: auto;
+    height: 0;
+    overflow: visible;
+    clip-path: none;
+    filter: none;
+    color: var(--ink);
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  .header::after,
   .header::before {
-    top: 10px;
-    right: 6px;
-    left: 6px;
+    display: none;
   }
 
   .header-inner {
-    padding: 28px 10px;
-    align-items: center;
-    gap: 34px;
+    max-width: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    display: block;
+    gap: 0;
+    pointer-events: none;
   }
 
   .header-logo {
-    width: 64px;
+    display: none;
+  }
+
+  .header-menu {
+    width: min(300px, calc(100vw - 36px));
+    padding: 18px;
+    position: fixed;
+    right: 18px;
+    bottom: 88px;
+    z-index: 31;
+    max-height: calc(100dvh - 122px);
+    overflow-y: auto;
+    color: var(--ink);
+    background-color: #fdfcef;
+    background-image:
+      linear-gradient(115deg, rgba(255, 255, 255, 0.95), rgba(246, 242, 221, 0.9)),
+      linear-gradient(to right, rgba(241, 220, 92, 0.24) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(241, 220, 92, 0.24) 1px, transparent 1px);
+    background-size: 100% 100%, 18px 18px, 18px 18px;
+    border: 3px solid var(--ink);
+    box-shadow:
+      7px 7px 0 #f9509f,
+      20px 22px 34px rgba(0, 0, 0, 0.24);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      visibility 160ms ease;
+    pointer-events: none;
+  }
+
+  body.is-menu-open .header-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .mobile-menu-toggle {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: max(18px, env(safe-area-inset-right));
+    bottom: max(18px, env(safe-area-inset-bottom));
+    z-index: 32;
+    display: grid;
+    place-content: center;
+    gap: 5px;
+    background-color: #ffe94f;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    box-shadow: 5px 5px 0 #f9509f;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-toggle span {
+    width: 24px;
+    height: 3px;
+    display: block;
+    background-color: var(--ink);
+    transition:
+      transform 160ms ease,
+      opacity 160ms ease;
+  }
+
+  body.is-menu-open .mobile-menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  body.is-menu-open .mobile-menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.is-menu-open .mobile-menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .menu ul {
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 22px;
+    display: grid;
+    gap: 10px;
   }
 
   .menu ul li a {
-    font-size: 9px;
+    padding: 12px 14px;
+    display: block;
+    color: var(--paper);
+    background-color: var(--ink);
+    font-size: 13px;
     line-height: 1.2;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.16);
   }
 
   .menu ul li a[aria-current="page"] {
-    padding-left: 5px;
-    border-left-width: 2px;
+    padding-left: 14px;
+    border-left: 5px solid #f9509f;
   }
 
   .main {
     --book-width: calc(100% - 20px);
+    margin-left: 0;
+    padding-top: 0;
   }
 
   .footer {
-    padding: 0 10px calc(var(--ribbon-notch) + 10px);
+    width: auto;
+    margin-left: 0;
+    padding: 42px 22px 34px;
+    position: relative;
+    left: auto;
+    bottom: auto;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    color: var(--ink);
+    background-color: #fdfcef;
+    background-image:
+      linear-gradient(115deg, rgba(255, 255, 255, 0.95), rgba(246, 242, 221, 0.9)),
+      linear-gradient(to right, rgba(241, 220, 92, 0.24) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(241, 220, 92, 0.24) 1px, transparent 1px);
+    background-size: 100% 100%, 18px 18px, 18px 18px;
+    border-top: 3px solid var(--ink);
+    text-align: left;
+  }
+
+  .footer-logo-set {
+    display: grid;
+    gap: 14px;
+  }
+
+  .footer-logo {
+    display: block;
+    height: auto;
+  }
+
+  .footer-logo-osaka {
+    width: min(220px, 68vw);
+  }
+
+  .footer-logo-partners {
+    display: grid;
+    gap: 12px;
+  }
+
+  .footer-logo-cbi {
+    width: min(340px, 100%);
+    height: 88px;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  .footer-logo-onac {
+    width: min(320px, 100%);
   }
 
   .footer-about-us {
-    display: none;
+    display: block;
+    margin-top: 0;
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.78);
   }
 
   .copyright {
     margin-top: 0;
-    font-size: 9px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.66);
   }
 
   .copyright small {
-    display: none;
+    display: inline;
   }
 
   .copyright::before {
-    content: "© 2026\A 空気図鑑";
-    white-space: pre-line;
+    content: none;
   }
 
   .book-page {
@@ -808,6 +1044,13 @@
   }
 
   .footer-about-us {
-    display: none;
+    font-size: 8px;
+    line-height: 1.35;
+  }
+
+  .copyright {
+    margin-top: 8px;
+    font-size: 8px;
+    line-height: 1.35;
   }
 }

@@ -11,15 +11,15 @@
 }
 
 .info-cover {
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: calc(100vh - var(--top-logo-bar-height));
+  min-height: calc(100svh - var(--top-logo-bar-height));
   padding: 28px 24px 0;
   display: grid;
   place-items: end center;
 }
 
 .info-cover-page {
-  min-height: max(640px, calc(100svh - 28px));
+  min-height: max(640px, calc(100svh - var(--top-logo-bar-height) - 28px));
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
 #venue-nakanoshima,
 #sns,
 #contact {
-  scroll-margin-top: 28px;
+  scroll-margin-top: calc(var(--top-logo-bar-height) + 28px);
 }
 
 .info-book .book-heading {

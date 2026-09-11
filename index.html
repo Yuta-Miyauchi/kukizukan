@@ -9,6 +9,7 @@
         <meta name = "viewport" content = "width=device-width">
         <script src = "./js/scroll-reveal.js"></script>
         <script src = "./js/upcoming-event.js" defer></script>
+        <script src = "./js/mobile-menu.js" defer></script>
         <link href = "./css/common.css" rel = "stylesheet">
         <link href = "./css/book.css" rel = "stylesheet">
         <link href = "./css/concept.css" rel = "stylesheet">
@@ -24,7 +25,7 @@
                 <a class = "header-logo" href = "./index.html">
                     <img src = "./images/common/logo.png" alt = "logo-artmosphere">
                 </a>
-                <div class = "header-menu">
+                <div class = "header-menu" id = "site-menu">
                     <nav class = "menu">
                         <ul>
                             <li><a href = "#exhibition">EXHIBITION</a></li>
@@ -36,7 +37,21 @@
                     </nav>
                 </div>
             </div>
+            <button class = "mobile-menu-toggle" type = "button" aria-controls = "site-menu" aria-expanded = "false" aria-label = "メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
+        <div class = "site-logo-bar" aria-label = "関連団体ロゴ">
+            <div class = "site-logo-bar-inner">
+                <img class = "site-logo site-logo-osaka" src = "./images/common/J_C1_bl_RGB.jpg" alt = "大阪大学">
+                <div class = "site-logo-partners">
+                    <img class = "site-logo site-logo-cbi" src = "./images/common/02_CBI_EN_RGB.png" alt = "大阪大学超域イノベーション博士課程プログラム">
+                    <img class = "site-logo site-logo-onac" src = "./images/common/onac_logo_横並び.png" alt = "大阪大学中之島芸術センター">
+                </div>
+            </div>
+        </div>
         <main class = "main has-open-book">
             <!-- 表紙。本のページの形は保ったまま、中身を告知ポスターの版面にしている -->
             <div class = "first-view">
@@ -223,7 +238,7 @@
                         <h2 class = "book-heading">『「空気」を観る体験の創造』について</h2>
                         <p class = "book-text">『「空気」を観る体験の創造』は、分野の垣根を超えて集まった大学院生の共創的活動を支援する大阪大学超域イノベーション博士課程プログラム2026年度グループ型企画支援に採択され、スタートしたプロジェクトです。</p>
                         <h3 class = "book-subheading">大阪大学超域イノベーション博士課程プログラムとは</h3>
-                        <p class = "book-text">社会における複雑で困難な状況に対して「あるべきすがた」を着想し、新たな知の探求や知と知の融合を構想することにより価値を創り出す取り組みを先導できる高度人材の育成を目標とした、大阪大学独自の博士課程プログラムです。</p>
+                        <p class = "book-text">文理を超えた14の研究科から選抜された学生が集い、プロジェクト型授業などのカリキュラムに協働で取り組むなかで、本質を掴む俯瞰力と、複雑な社会課題に挑む独創力を育む大阪大学独自の博士課程プログラムです。<br>企業、行政、大学など様々な分野で社会と知の統合の担い手として活躍する人材の輩出することを目的としています。</p>
                         <a class = "stamp-link" href = "https://www.cbi.osaka-u.ac.jp/" target = "_blank" rel = "noopener noreferrer">
                             <span>OFFICIAL SITE</span>
                             <strong>超域イノベーション博士課程プログラム公式サイト</strong>
@@ -283,6 +298,13 @@
             </section>
         </main>
         <footer class = "footer">
+            <div class = "footer-logo-set" aria-label = "関連団体ロゴ">
+                <img class = "footer-logo footer-logo-osaka" src = "./images/common/J_C1_bl_RGB.jpg" alt = "大阪大学">
+                <div class = "footer-logo-partners">
+                    <img class = "footer-logo footer-logo-cbi" src = "./images/common/02_CBI_EN_RGB.png" alt = "大阪大学超域イノベーション博士課程プログラム">
+                    <img class = "footer-logo footer-logo-onac" src = "./images/common/onac_logo_横並び.png" alt = "大阪大学中之島芸術センター">
+                </div>
+            </div>
             <p class = "footer-about-us">主催：<br>大阪大学超域イノベーション博士課程プログラム2026年度グループ型企画支援『「空気」を観る体験の創造』<br>共催：<br>大阪大学中之島芸術センター</p>
             <p class = "copyright"><small>Copyright &copy; 2026 あなたとつくる空気図鑑 All rights reserved.</small></p>
         </footer>
