@@ -778,51 +778,6 @@
   font-weight: bold;
 }
 
-.index-contact-link {
-  min-width: 300px;
-  padding: 16px 22px 15px;
-  position: absolute;
-  right: 600px;
-  bottom: -130px;
-  z-index: 4;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 6px;
-  color: var(--ink);
-  background-color: var(--p-yellow);
-  border: 3px solid var(--ink);
-  box-shadow: 7px 7px 0 var(--p-pink);
-  text-decoration: none;
-  transform: rotate(-1.5deg);
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.index-contact-link:hover {
-  box-shadow: 4px 4px 0 var(--p-teal);
-  transform: translate(3px, 3px) rotate(-1.5deg);
-}
-
-.index-contact-link span {
-  width: fit-content;
-  padding: 4px 7px;
-  color: var(--paper);
-  background-color: var(--ink);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  line-height: 1;
-}
-
-.index-contact-link strong {
-  font-size: 19px;
-  line-height: 1.35;
-}
-
-.index-contact-link strong::after {
-  content: " →";
-}
-
 /* ==========================================================
    10. レスポンシブ
 
@@ -892,11 +847,6 @@
   .home-member-card img {
     width: 60px;
     height: 60px;
-  }
-
-  .index-contact-link {
-    right: 16px;
-    bottom: -76px;
   }
 }
 
@@ -975,19 +925,6 @@
   .home-member-card img {
     width: 74px;
     height: 74px;
-  }
-
-  .index-contact-link {
-    min-width: 0;
-    right: 4px;
-    bottom: -66px;
-    max-width: calc(100% - 8px);
-    padding: 14px 16px 13px;
-    box-shadow: 5px 5px 0 var(--p-pink);
-  }
-
-  .index-contact-link strong {
-    font-size: 16px;
   }
 }
 

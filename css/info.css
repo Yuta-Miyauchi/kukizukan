@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ==========================================================
-   info.css — INFO ページ固有（会場 / SNS / お問い合わせ）
+   info.css — INFO ページ固有（会場 / SNS）
    レイアウトと部品は book.css を参照
    ========================================================== */
 
@@ -31,8 +31,7 @@
 }
 
 #venue-nakanoshima,
-#sns,
-#contact {
+#sns {
   scroll-margin-top: calc(var(--top-logo-bar-height) + 28px);
 }
 
@@ -198,108 +197,7 @@ a.sns-card:hover {
 }
 
 /* ==========================================================
-   5. お問い合わせフォーム
-   ========================================================== */
-
-.form-notice {
-  margin-top: 26px;
-  padding: 16px 20px;
-  font-size: 14px;
-  line-height: 1.8;
-  background-color: rgba(255, 255, 255, 0.72);
-  border: 2px dashed var(--ink);
-}
-
-.form-notice strong {
-  display: block;
-}
-
-.contact-form {
-  margin-top: 28px;
-  display: grid;
-  gap: 22px;
-}
-
-.form-row {
-  display: grid;
-  gap: 8px;
-}
-
-.form-row label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  line-height: 1.5;
-}
-
-.form-required {
-  padding: 3px 8px;
-  color: var(--paper);
-  background-color: var(--ink);
-  font-size: 11px;
-  line-height: 1;
-  font-weight: bold;
-}
-
-.form-row input,
-.form-row select,
-.form-row textarea {
-  width: 100%;
-  padding: 12px 14px;
-  font-family: inherit;
-  font-size: 16px;
-  line-height: 1.6;
-  color: inherit;
-  background-color: rgba(255, 255, 255, 0.86);
-  border: 2px solid var(--ink);
-  border-radius: 0;
-  appearance: none;
-}
-
-.form-row textarea {
-  resize: vertical;
-}
-
-.form-row input:focus,
-.form-row select:focus,
-.form-row textarea:focus {
-  outline: 3px solid var(--ink);
-  outline-offset: 2px;
-}
-
-.form-row input:disabled,
-.form-row select:disabled,
-.form-row textarea:disabled {
-  color: rgba(0, 0, 0, 0.4);
-  background-color: rgba(0, 0, 0, 0.05);
-  border-style: dashed;
-  cursor: not-allowed;
-}
-
-/* .stamp-link を button に流用しているので、ボタン既定の見た目を消す */
-.form-submit {
-  width: 100%;
-  font-family: inherit;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.form-submit:disabled {
-  background-color: rgba(0, 0, 0, 0.45);
-  border-color: rgba(0, 0, 0, 0.45);
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.form-submit:disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-/* ==========================================================
-   6. レスポンシブ（book.css と同じ 900 → 520 → 700 の順）
+   5. レスポンシブ（book.css と同じ 900 → 520 → 700 の順）
    ========================================================== */
 
 @media (max-width: 900px) {
@@ -363,14 +261,6 @@ a.sns-card:hover {
 
   .sns-card-name {
     font-size: 18px;
-  }
-
-  .contact-form {
-    gap: 18px;
-  }
-
-  .form-notice {
-    font-size: 13px;
   }
 }
 
